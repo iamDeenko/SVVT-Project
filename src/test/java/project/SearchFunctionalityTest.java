@@ -23,7 +23,7 @@ public class SearchFunctionalityTest extends BaseTest
 
         String expectedURL = "https://jysk.ba/search?query=stolica&type=product";
 
-        Thread.sleep(2500);
+        longWait();
 
         assertEquals(expectedURL, webDriver.getCurrentUrl());
 

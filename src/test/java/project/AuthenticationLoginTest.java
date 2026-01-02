@@ -15,13 +15,13 @@ public class AuthenticationLoginTest extends BaseTest
     public void testValidLogin() throws InterruptedException
     {
 
-        // Email and password I made via tempmail used for testing purposes.
-
+        // Email and password I made via TempMail used for testing purposes.
         String email = "pikeceh610@gavrom.com";
         String password = "t528R3mTzSnu.eL";
 
 
         webDriver.get(appendBaseURL("customer/login"));
+
 
         acceptCookies();
 
@@ -30,19 +30,19 @@ public class AuthenticationLoginTest extends BaseTest
         webDriver.findElement(By.id("email")).sendKeys(email);
         webDriver.findElement(By.id("password")).sendKeys(password);
 
+
         // Click on the submit button
         webDriver.findElement(By.xpath("//*[@id=\"jysk-customer-app\"]/div[4]/button[1]")).click();
 
 
-        Thread.sleep(2500);
+        longWait();
+
 
         // If successful, the div should navigate us to /customer/dashboard
-
-
         String expectedURL = "https://jysk.ba/customer/dashboard";
 
-        assertEquals(expectedURL, webDriver.getCurrentUrl());
 
+        assertEquals(expectedURL, webDriver.getCurrentUrl());
     }
 
 }

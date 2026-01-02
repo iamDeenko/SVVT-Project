@@ -50,9 +50,11 @@ public class BaseTest
 
 
     // Helper method I made to click on the annoying cookies popup that shows on browser opening.
-    public void acceptCookies()
+    public void acceptCookies() throws InterruptedException
     {
+        this.shortWait();
         webDriver.findElement(By.xpath("//*[@id=\"onetrust-accept-btn-handler\"]")).click();
+        this.shortWait();
     }
 
 
@@ -69,4 +71,17 @@ public class BaseTest
         javascriptExecutor.executeScript("arguments[0].click();", webElement);
     }
 
+
+
+    // Waits 1000 milliseconds.
+    public void shortWait() throws InterruptedException
+    {
+        Thread.sleep(1000);
+    }
+
+    //Waits 3000 milliseconds.
+    public void longWait() throws InterruptedException
+    {
+        Thread.sleep(3000);
+    }
 }

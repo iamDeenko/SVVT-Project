@@ -31,7 +31,7 @@ public class AuthenticationRegisterTest extends BaseTest
         webDriver.findElement(By.id("lastName")).sendKeys(lastName);
 
 
-        // Click TOS - scroll it into view FIRST, then click with JS
+        // Get the button, then click with JS using the scrollAndClick function
         WebElement tosButton = webDriver.findElement(By.xpath(
                 "/html/body/div[1]/div/div[2]/div[3]/div/div/div/section/form/div/div[2]/div[7]/div/div/div/label/input"
         ));
