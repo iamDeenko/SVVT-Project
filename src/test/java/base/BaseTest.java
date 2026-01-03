@@ -9,12 +9,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BaseTest
 {
 
     protected WebDriver webDriver;
-    protected String baseURL = "http://jysk.ba/";
+    protected String baseURL = "https://jysk.ba/";
     protected JavascriptExecutor javascriptExecutor;
 
 
@@ -50,11 +51,32 @@ public class BaseTest
 
 
     // Helper method I made to click on the annoying cookies popup that shows on browser opening.
-    public void acceptCookies() throws InterruptedException
-    {
-        this.shortWait();
-        webDriver.findElement(By.xpath("//*[@id=\"onetrust-accept-btn-handler\"]")).click();
-        this.shortWait();
+    public void acceptCookies() {
+        try {
+            List<WebElement> acceptButton = webDriver.findElements(By.id("onetrust-accept-btn-handler"));
+
+            if (!acceptButton.isEmpty() && acceptButton.get(0).isDisplayed()) {
+                acceptButton.get(0).click();
+                Thread.sleep(1000);
+            }
+        } catch (Exception e) {
+            System.out.println("Cookie banner not found or already accepted. Skipping...");
+        }
+    }
+
+    // This website also has a popup that shows from time to time, blocking the forEach loop in the NavLinkTest class.
+    public void closeNewsletterIfPresent() {
+        try {
+            // This is a common selector for the 'X' button on JYSK popups
+            // Using a list so we don't throw an error if it's not there
+            var closeButtons = webDriver.findElements(By.cssSelector("button.newsletter-popup-close-btn, .modal-header .close"));
+            if (!closeButtons.isEmpty() && closeButtons.get(0).isDisplayed()) {
+                closeButtons.get(0).click();
+                shortWait(); // Wait for the backdrop to fade out
+            }
+        } catch (Exception e) {
+            // If it fails to close, we just try to move on
+        }
     }
 
 
