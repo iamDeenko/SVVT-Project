@@ -148,5 +148,44 @@ public class StoreLocatorTest extends BaseTest {
 
     }
 
+    @Test
+    public void koristiMojuLokacijuTest() throws InterruptedException {
+        webDriver.get(appendBaseURL("prodavnice-i-radno-vrijeme"));
+        acceptCookies();
+        shortWait();
+
+// Find "Koristi moju lokaciju" button
+        WebElement myLocationBtn = webDriver.findElement(
+                By.cssSelector("button.stores-locator-form__location-button")
+        );
+
+// Assert button is visible
+        Assertions.assertTrue(
+                myLocationBtn.isDisplayed(),
+                "'Koristi moju lokaciju' button is not visible"
+        );
+
+// Click button
+        try {
+            myLocationBtn.click();
+        } catch (Exception e) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click();", myLocationBtn);
+        }
+
+// Allow map to react
+        longWait();
+
+// Assert map info window or store info appears
+        boolean infoWindowShown = webDriver.findElements(
+                By.cssSelector(".stores-locator-info-window")
+        ).size() > 0;
+
+        Assertions.assertTrue(
+                infoWindowShown,
+                "No store info window appeared after clicking 'Koristi moju lokaciju'"
+        );
+
+    }
+
 
 }
