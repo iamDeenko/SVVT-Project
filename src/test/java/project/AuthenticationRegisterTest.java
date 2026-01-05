@@ -99,7 +99,7 @@ public class AuthenticationRegisterTest extends BaseTest
         scrollTo(invalidEmailSpan);
         String invalidEmailText = invalidEmailSpan.getText();
 
-`        assertEquals("Please enter a valid e-mail", invalidEmailText);
+        assertEquals("Please enter a valid e-mail", invalidEmailText);
     }
 
 
@@ -113,7 +113,7 @@ public class AuthenticationRegisterTest extends BaseTest
         String timestamp = String.valueOf(System.currentTimeMillis());
         //Here we will make an invalid password
         String invalidEmail = "test@test." + timestamp + ".com";
-        String password = "bb";`
+        String password = "bb";
         String firstName = "Test";
         String lastName = "Testinovich";
 
