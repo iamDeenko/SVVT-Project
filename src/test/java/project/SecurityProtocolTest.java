@@ -15,7 +15,6 @@ public class SecurityProtocolTest extends BaseTest
         // Get the HTTP version of the site.
         webDriver.get("http://jysk.ba/");
 
-
         shortWait();
 
         // If the redirection works, the URL should be the URL below.
