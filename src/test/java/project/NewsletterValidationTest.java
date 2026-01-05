@@ -29,7 +29,8 @@ public class NewsletterValidationTest extends BaseTest
 
         shortWait();
 
-        //Input an invalid email
+        //Input an invalid emailocs
+
         webDriver.findElement(By.id("teradata-email")).sendKeys("bh3@c.c");
 
         shortWait();

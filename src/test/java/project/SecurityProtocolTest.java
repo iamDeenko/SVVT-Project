@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SecurityProtocolTest extends BaseTest
 {
 
-
     @Test
     public void testHTTPRedirection() throws InterruptedException
     {
@@ -21,4 +20,6 @@ public class SecurityProtocolTest extends BaseTest
         String expectedURL = "https://jysk.ba/";
         assertEquals(expectedURL, webDriver.getCurrentUrl());
     }
+
+
 }
