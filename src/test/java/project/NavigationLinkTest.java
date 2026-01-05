@@ -3,11 +3,7 @@ package project;
 import base.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -43,13 +39,10 @@ public class NavigationLinkTest extends BaseTest
         // Loop through each item in the navbar.
         for (String link : this.links)
         {
-
             // Navigate to the webpage
             webDriver.get(appendBaseURL(link));
 
-
             acceptCookies();
-
 
             assertEquals(appendBaseURL(link), webDriver.getCurrentUrl());
         }
@@ -57,18 +50,15 @@ public class NavigationLinkTest extends BaseTest
 
 
     @Test
-    public void testNonExistantNavigation() throws InterruptedException
+    public void testNonExistentNavigation() throws InterruptedException
     {
         // Open use the baseURL and append a non-existant URL to it.
         String imaginaryURL = "e3yhaha345";
         webDriver.get(appendBaseURL(imaginaryURL));
 
-
         acceptCookies();
 
-
         shortWait();
-
 
         // If the link does NOT exist, the page should display "Oops! Stranica koju ste trazili NE postoji"
         WebElement pageNotFoundText = webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[3]/div/div[2]/div/div/div/section/article/div/div/h1"));

@@ -30,9 +30,7 @@ public class CartTest extends BaseTest
         WebElement firstItemPicture = webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[3]/div[2]/section/div[2]/div[1]/div[3]/div[1]/div/div/div[1]/a"));
         scrollAndClick(firstItemPicture);
 
-
         shortWait();
-
 
         // Now we click on the "Dodaj u korpu" button to add the item to the cart.
         WebElement addToCartButton = webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[3]/div/div/div/section/article/section/main/div[1]/div[2]/div/div/div/div/div[5]/div/button/span"));
@@ -75,10 +73,8 @@ public class CartTest extends BaseTest
         // Wait a while for the div to show up.
         shortWait();
 
-
         // Click the "Pregled kupovnje button"
         webDriver.findElement(By.xpath("/html/body/div[9]/div[4]/div[2]/div/div/a")).click();
-
 
         // Get the quantity from the div and store it in an int to compare
         WebElement quantityDiv = webDriver.findElement(By.xpath("/html/body/div[1]/div/section/div/div/div[3]/div[1]/div[1]/div/div/ul/li/div[3]/input"));
@@ -94,31 +90,23 @@ public class CartTest extends BaseTest
         // Open the link to a black lounge ubberup chair
         webDriver.get(appendBaseURL("basta/lounge-namjestaj/lounge-stolice/lounge-stolica-ubberup-crna"));
 
-
         acceptCookies();
-
 
         // Scroll & click on the "Add to cart button"
         WebElement addToCart = webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[3]/div/div/div/section/article/section/main/div[1]/div[2]/div/div/div/div/div[4]/div/button"));
         scrollAndClick(addToCart);
 
-
         shortWait();
-
 
         // Continue checkout.
         webDriver.findElement(By.xpath("/html/body/div[9]/div[3]/div[2]/div/div/a")).click();
 
-
         shortWait();
-
 
         // Click on the empty cart button.
         webDriver.findElement(By.xpath("/html/body/div[1]/div/section/div/div/div[3]/div[1]/div[1]/div/div/ul/li/button")).click();
 
-
         shortWait();
-
 
         // If the operation is successful, this div SHOULD exist and should display "Korpa je prazna"
         WebElement emptyCartText = webDriver.findElement(By.xpath("/html/body/div[1]/div/section/div/div/div[3]/div[1]/div[1]/div[1]/div"));
