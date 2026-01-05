@@ -83,7 +83,6 @@ public class BaseTest
     // Another helper method I made that scrolls to things and clicks them.
     public void scrollAndClick(WebElement webElement)
     {
-
         javascriptExecutor.executeScript(
                 "arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});",
                 webElement
@@ -91,6 +90,16 @@ public class BaseTest
 
         // JS click
         javascriptExecutor.executeScript("arguments[0].click();", webElement);
+    }
+
+
+    // Helper method I made that only scrolls to things
+    public void scrollTo(WebElement webElement)
+    {
+        javascriptExecutor.executeScript(
+                "arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});",
+                webElement
+        );
     }
 
 
