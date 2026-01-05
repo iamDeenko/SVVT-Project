@@ -81,10 +81,10 @@ public class NewsletterValidationTest extends BaseTest
         webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[5]/div/div/form/div[1]/div[3]/button")).click();
 
         // If the email is incorrect a little notification saying that we need a correct email address will pop up below the input field
-        WebElement subsriptionDiv = webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[5]/div/div/form/div[1]/h2"));
+        WebElement subscriptionDiv = webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[5]/div/div/form/div[1]/h2"));
 
         // Get the value from the webelement and compare it. It should be "Hvala vam na zanimanju za naše Novosti.".
-        String subscriptionText = subsriptionDiv.getText();
+        String subscriptionText = subscriptionDiv.getText();
         assertEquals("Hvala vam na zanimanju za naše Novosti.", subscriptionText);
     }
 }
